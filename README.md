@@ -30,8 +30,7 @@
 
 # Link to the GITHUB page
 
-https://github.com/roman-ac/
-
+https://github.com/roman-ac/note-taker-by-roman-ac
 
 
 # Screenshot
