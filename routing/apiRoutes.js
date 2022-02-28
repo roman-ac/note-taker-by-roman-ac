@@ -13,11 +13,11 @@ notes.get('/notes', (req, res) => {
 
   // GET Route for a specific note
   notes.get('/:id', (req, res) => {
-    const NoteTakerId = req.params.note_id;
+    const NoteTakerId = req.params.id;
     readFromFile('db/db.json')
       .then((data) => JSON.parse(data))
       .then((json) => {
-        const result = json.filter((note) => note.note_id === NoteTakerId);
+        const result = json.filter((note) => note.id === NoteTakerId);
         return result.length > 0
           ? res.json(result)
           : res.json('No note with that ID');
@@ -35,7 +35,7 @@ notes.get('/notes', (req, res) => {
   
         // Save that array to the filesystem
         writeToFile('db/db.json', result);
-        console.log(result);
+        
   
         // Respond to the DELETE request
         res.json(`Item ${NoteTakerId} has been deleted 🗑️`);
